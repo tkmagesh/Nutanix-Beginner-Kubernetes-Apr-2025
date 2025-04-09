@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment  
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: my-nginx
+  # template for the pod
+  template:
+    metadata:
+      labels:
+        app: my-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+
+# kubectl get pods --selector app=my-nginx
