@@ -85,3 +85,9 @@ kubectl get pods
 kubectl delete deployment nginx-deployment
 ```
 
+## Scale the deployment
+```shell
+kubectl create deployment nginx-deployment --image=nginx
+kubectl scale deployment nginx-deployment --replicas=3
+```
+
