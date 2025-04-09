@@ -69,3 +69,19 @@ kubectl delete pod ngnix-pod
 ```shell
 kubectl describe pod nginx-pod
 ```
+
+# Deployment
+
+## Create and manage deployment for an image
+```shell
+kubectl create deployment nginx-deployment --image=nginx
+
+kubectl get deployments
+
+kubectl describe deployment nginx-deployment
+
+kubectl get pods
+
+kubectl delete deployment nginx-deployment
+```
+
