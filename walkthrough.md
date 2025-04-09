@@ -91,3 +91,26 @@ kubectl create deployment nginx-deployment --image=nginx
 kubectl scale deployment nginx-deployment --replicas=3
 ```
 
+# Service
+## Exposing a Pod using a "Service" (type=NodePort)
+```shell
+kubectl get services
+
+# Make sure the nginx pod is created
+kubectl get pods
+
+# --port = <container-port>
+kubectl expose pod nginx-pod --type=NodePort --port=80 --name=nginx-pod-svc
+
+# 
+kubectl describe service nginx-pod-svc
+
+# Get the URL
+minikube service nginx-pod --url
+
+# Delete
+minikube delete service nginx-pod-svc
+```
+
+
+
