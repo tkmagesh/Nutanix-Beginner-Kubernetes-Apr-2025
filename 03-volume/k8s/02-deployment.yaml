@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-pvc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-pvc-app
+  template:
+    metadata:
+      labels:
+        app: node-pvc-app
+    spec:
+      containers:
+      - name: node-container
+        image: tkmagesh/node-pvc-app:2.0.0
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - mountPath: /data
+          name: app-storage
+      volumes:
+      - name: app-storage
+        persistentVolumeClaim:
+          claimName: node-app-pvc

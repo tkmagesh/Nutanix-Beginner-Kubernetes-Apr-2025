@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: my-nginx
+        org: nutanix
     spec:
       containers:
       - name: nginx
