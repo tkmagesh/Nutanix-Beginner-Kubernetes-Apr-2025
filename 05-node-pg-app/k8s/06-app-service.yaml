@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  selector:
+    app: node-app
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30099     # Port exposed on the node (custom, must be in range 30000-32767)
+  type: NodePort
